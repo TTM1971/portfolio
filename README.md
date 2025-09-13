@@ -1,3 +1,3 @@
-# porte-folio
+# portfolio
 page web
-https://ttm1971.github.io/porte-folio/
+https://ttm1971.github.io/portfolio/
