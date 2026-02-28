@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.PNG?v=2">
+    <meta name="theme-color" content="#0b0f14">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – tresor megane</title>
+  <meta name="description" content="Portfolio personnel de tambat tresor megane – Projets, compétences, expérience et contact." />
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#101722; --muted:#a7b0be; --text:#e8eef6; --brand:#5cc8ff;
+      --ring:rgba(92,200,255,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif; background:var(--bg); color:var(--text)}
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin:0 auto; padding:28px}
+    header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in oklab, var(--bg) 80%, transparent); border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent); z-index:50}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .nav a{margin:0 8px; font-weight:600; color:var(--text); opacity:.9}
+    .nav a:hover{opacity:1}
+    .btn{display:inline-flex; align-items:center; gap:10px; background:var(--brand); color:white; border:none; padding:12px 16px; border-radius:14px; font-weight:700; cursor:pointer; box-shadow:0 8px 24px -8px var(--ring); transition:all 0.3s ease}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 12px 32px -8px var(--ring)}
+    .btn.secondary{background:transparent; color:var(--text); border:1px solid color-mix(in oklab, var(--text) 18%, transparent)}
+    .btn.secondary:hover{background:color-mix(in oklab, var(--brand) 10%, transparent); border-color:var(--brand)}
+    .grid{display:grid; gap:20px}
+    .hero{padding:72px 0 36px}
+    .hero h1{font-size: clamp(28px, 4vw, 44px); line-height:1.1; margin:0 0 12px}
+    .hero p{color:var(--muted); font-size: clamp(16px, 2vw, 18px); margin:0 0 24px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid color-mix(in oklab, var(--text) 18%, transparent); border-radius:999px; color:var(--muted); font-size:13px}
+    .section{padding:32px 0}
+    .card{background:var(--card); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius:18px; padding:20px; transition:all 0.3s ease}
+    .card:hover{border-color:color-mix(in oklab, var(--brand) 40%, var(--card)); box-shadow:0 10px 28px -14px var(--ring); transform:translateY(-4px)}
+    .title{font-size:22px; margin:0 0 4px}
+    .muted{color:var(--muted)}
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .kpi{background:var(--card); border-radius:16px; padding:16px; border:1px solid color-mix(in oklab, var(--text) 12%, transparent); transition:all 0.3s ease}
+    .kpi:hover{transform:translateY(-2px); border-color:var(--brand)}
+    .kpi strong{display:block; font-size:22px}
+    .skills{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{padding:8px 12px; border-radius:999px; border:1px solid color-mix(in oklab, var(--text) 18%, transparent); color:var(--muted); font-weight:600; font-size:14px; transition:all 0.2s ease}
+    .chip:hover{border-color:var(--brand); color:var(--brand)}
+    .projects{grid-template-columns:repeat(auto-fill, minmax(260px, 1fr))}
+    .proj-cover{aspect-ratio:16/10; border-radius:12px; background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 35%, var(--card)), var(--card)); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); display:flex; align-items:center; justify-content:center; font-weight:800; transition:all 0.3s ease}
+    .card:hover .proj-cover{background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 50%, var(--card)), var(--card)); transform:scale(1.02)}
+    .row{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+    footer{padding:28px 0 56px; color:var(--muted)}
+    .footer-links{display:flex; gap:14px; flex-wrap:wrap}
+    .sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+    @media (max-width:720px){ .kpis{grid-template-columns:1fr 1fr} }
+    .brand { font-weight:800; letter-spacing:.3px; }
+    .logo { height:70px; width:auto; display:block }
+    .ai-badge{background:linear-gradient(135deg, var(--brand), #8b5cf6); color:white; padding:4px 10px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px}
+    .ai-section{margin-bottom:32px}
+    .ai-section h2{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+    .more-projects{display:none; animation:fadeIn 0.5s ease}
+    .more-projects.show{display:grid}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
+    .see-more-btn{width:100%; margin-top:24px; justify-content:center; background:linear-gradient(135deg, var(--brand), #8b5cf6)}
+    .see-more-btn:hover{background:linear-gradient(135deg, #8b5cf6, var(--brand))}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+    <a href="#" class="row brand">
+        <img id="logo" class="logo" src="logo.PNG" alt="Logo TAMBAT Tresor Megane">
+        <span class="brand-name">TAMBAT Tresor Megane</span>
+    </a>
+
+      <nav class="row" aria-label="Navigation principale">
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#experience">Expérience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <span class="badge">Disponible pour stage / emploi à temps partiel</span>
+      <h1>Je construis des solutions  <span style="color:var(--brand)">IT & Web & Science de données & IA</span> .</h1>
+      <p>Étudiant en informatique basé à Ottawa/Gatineau. Spécialisé en science de données et intelligence artificielle </p>
+      <div class="row">
+        <a class="btn" href="#projets">Voir mes projets</a>
+       
+        <a class="btn secondary" href="tresor_cv_proff.pdf" target="_blank" rel="noopener" type="application/pdf">Voir mon CV</a>
+      </div>
+
+    </section>
+
+    <!-- KPIs / Faits saillants -->
+    <section class="section">
+     <div class="kpis">
+        <div class="kpi">
+          <span class="muted">Projets complétés</span>
+          <strong>10+</strong>
+        </div>
+        <div class="kpi">
+          <span class="muted">Projets IA/ML</span>
+          <strong>4+</strong>
+        </div>
+        <div class="kpi">
+          <span class="muted">Technologies maîtrisées</span>
+          <strong>15+</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="section">
+      <div class="ai-section">
+        <h2 class="title">
+          <span>Projets Intelligence Artificielle</span>
+          <span class="ai-badge">IA</span>
+        </h2>
+        <p class="muted">Mes projets phares en machine learning, deep learning et intelligence artificielle.</p>
+      </div>
+      <div class="grid projects" style="margin-top:14px">
+        <!-- Projet IA 1 -->
+        <article class="card">
+          <div class="proj-cover">Machine Learning</div>
+          <h3 style="margin:12px 0 6px">Comparaison d'algorithmes de Machine Learning</h3>
+          <p class="muted">Étude comparative de KNN, Régression Logistique et Arbre de décision pour prédire le défaut de paiement bancaire.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">Python</span>
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">Jupyter</span>
+          </div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/Comparaison-de-3-algorithmes-de-ML.git" class="btn secondary">Code</a>
+          </div>
+        </article> 
+        <!-- Projet IA 2 -->
+        <article class="card">
+          <div class="proj-cover">Cybersécurité</div>
+          <h3 style="margin:12px 0 6px">Détection d'Attaques DDoS</h3>
+          <p class="muted">Système de détection d'attaques DDoS utilisant Random Forest et Deep Q-Network avec 99.7% d'accuracy.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">PyTorch</span>
+            <span class="chip">Dask</span>
+            <span class="chip">Reinforcement Learning</span>
+            <span class="chip">SMOTE</span>
+          </div>
+          <div class="row">
+            <a href="#" class="btn secondary">Code</a>
+          </div>
+        </article>
+        <!-- Projet IA 3 -->
+        <article class="card">
+          <div class="proj-cover">Machine Learning</div>
+          <h3 style="margin:12px 0 6px">Prédiction du Diabète</h3>
+          <p class="muted">Analyse prédictive du diabète avec identification des facteurs critiques (âge, IMC, hypertension) - 75% accuracy.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">Feature Selection</span>
+            <span class="chip">Visualisation</span>
+            <span class="chip">Pandas</span>
+          </div>
+          <div class="row">
+            <a href="#" class="btn secondary">Code</a>
+          </div>
+        </article>
+        <!-- Projet IA 4 -->
+        <article class="card">
+          <div class="proj-cover">Data Science</div>
+          <h3 style="margin:12px 0 6px">Analyse des Flux de Transport Urbain</h3>
+          <p class="muted">Modélisation des flux de taxis new-yorkais avec clustering, classification et prédiction d'affluence.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">KMeans</span>
+            <span class="chip">DBSCAN</span>
+            <span class="chip">RandomForest</span>
+            <span class="chip">Folium</span>
+          </div>
+          <div class="row">
+            <a href="#" class="btn secondary">Code</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bouton Voir plus -->
+      <button class="btn see-more-btn" id="seeMoreBtn" onclick="toggleMoreProjects()">
+        Voir plus de projets
+      </button>
+
+      <!-- Autres projets (masqués par défaut) -->
+      <div class="grid projects more-projects" id="moreProjects" style="margin-top:20px">
+        <!-- Projet 5 -->
+        <article class="card">
+          <div class="proj-cover">Statistiques</div>
+          <h3 style="margin:12px 0 6px">Analyse Statistique - Bornes Électriques</h3>
+          <p class="muted">Analyse comparative inter-provinciale et modélisation prédictive de la demande pour le réseau ÉnerData Canada.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">ARIMA</span>
+            <span class="chip">Markov</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">Visualisation</span>
+          </div>
+          <div class="row">
+            <a href="#" class="btn secondary">Code</a>
+          </div>
+        </article>
+        <!-- Projet 6 -->
+        <article class="card">
+          <div class="proj-cover">Régression</div>
+          <h3 style="margin:12px 0 6px">Prédiction du Prix des Voitures</h3>
+          <p class="muted">Modèle de régression optimisé avec gestion de la multicolinéarité et validation des hypothèses statistiques.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">Statsmodels</span>
+            <span class="chip">Régression</span>
+            <span class="chip">VIF</span>
+            <span class="chip">Python</span>
+          </div>
+          <div class="row">
+            <a href="#" class="btn secondary">Code</a>
+          </div>
+        </article>
+        <!-- Projet 7 -->
+        <article class="card">
+          <div class="proj-cover">Théorie des Automates</div>
+          <h3 style="margin:12px 0 6px">Automate Non-Déterministe</h3>
+          <p class="muted">Implémentation complète d'automates finis avec déterminisation et minimisation utilisant Myhill-Nerode.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">Python</span>
+            <span class="chip">Algorithmes</span>
+            <span class="chip">Théorie</span>
+            <span class="chip">OOP</span>
+          </div>
+          <div class="row">
+            <a href="#" class="btn secondary">Code</a>
+          </div>
+        </article>
+        <!-- Projet 8 -->
+        <article class="card">
+          <div class="proj-cover">Base de Données</div>
+          <h3 style="margin:12px 0 6px">Base de Données Relationnelle</h3>
+          <p class="muted">Conception et implémentation d'une base de données pour la gestion des transactions commerciales.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">UML</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Normalisation</span>
+          </div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/projet1_base_de_donnee.git" class="btn secondary">Code</a>
+          </div>
+        </article>
+        <!-- Projet 9 -->
+        <article class="card">
+          <div class="proj-cover">Régression</div>
+          <h3 style="margin:12px 0 6px">Facteurs d'Apprentissage des Étudiants</h3>
+          <p class="muted">Analyse statistique pour identifier les facteurs influençant l'apprentissage avec modèles de régression linéaire.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">Régression</span>
+            <span class="chip">ANOVA</span>
+            <span class="chip">Statistiques</span>
+            <span class="chip">Python</span>
+          </div>
+          <div class="row">
+            <a href="#" class="btn secondary">Code</a>
+          </div>
+        </article>
+        <!-- Projet 10 -->
+        <article class="card">
+          <div class="proj-cover">JavaFX GPS</div>
+          <h3 style="margin:12px 0 6px">Simulation GPS avec Recalcul</h3>
+          <p class="muted">Application JavaFX avec algorithme de Dijkstra, simulation d'accidents et congestion, interface réactive.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">Java</span>
+            <span class="chip">JavaFX</span>
+            <span class="chip">Dijkstra</span>
+            <span class="chip">UI/UX</span>
+          </div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/Systeme-de-guidage-de-route-dans-un-reseau.git" class="btn secondary">Code</a>
+          </div>
+        </article>
+      </div> 
+    </section>
+
+    <!-- COMPETENCES -->
+    <section id="competences" class="section">
+      <h2 class="title">Compétences</h2>
+      <div class="card" style="margin-top:12px">
+        <h3>Apprentissage automatique</h3>
+        <div class="skills" style="margin:10px 0 20px">
+          <span class="chip">Spark</span>
+          <span class="chip">Pytorch</span>
+          <span class="chip">TensoFlow</span>
+          <span class="chip">Azure</span>
+          <span class="chip">AWS</span>
+          
+        </div>
+        <h3>Développement</h3>
+        <div class="skills" style="margin:10px 0 20px">
+          <span class="chip">HTML/CSS/JS</span>
+          <span class="chip">React</span>
+          <span class="chip">Python</span>
+          <span class="chip">Java</span>
+          <span class="chip">SQL</span>
+          <span class="chip">C</span>
+        </div>
+        <h3>Outils & Méthodes</h3>
+        <div class="skills">
+          <span class="chip">Git/GitHub</span>
+          <span class="chip">Agile/Scrum</span>
+          <span class="chip">Power BI</span>
+        </div>
+        <h3>Environnement</h3>
+        <div class="skills">
+          <span class="chip">Windows</span>
+          <span class="chip">macOs</span>
+          <span class="chip">Linux</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h2 class="title">Éducation</h2>
+      <div class="grid" style="margin-top:12px; grid-template-columns:1fr 1fr">
+
+        <div class="card">
+          <h3>Éducation</h3>
+          <ul>
+            <li><strong>Baccalauréat en informatique</strong> – UQO (en cours)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+  <h2 class="title">Me contacter</h2>
+  <p class="muted">Intéressé par une collaboration, un stage ou un poste junior ? Envoyez-moi un message.</p>
+
+  <form class="card" action="https://formsubmit.co/tambattresor25@gmail.com" method="POST">
+    <!-- Options -->
+    <input type="hidden" name="_subject" value="Nouveau message – Portfolio">
+    <input type="hidden" name="_next" value="http://localhost:5500/#">
+    <input type="hidden" name="_captcha" value="false">
+    <!-- Honeypot anti-spam -->
+    <input type="text" name="_honey" class="sr" tabindex="-1" autocomplete="off">
+
+    <label>Nom<br/>
+      <input required name="name" placeholder="Votre nom" style="width:100%; padding:12px; border-radius:12px; border:1px solid color-mix(in oklab, var(--text) 18%, transparent); background:transparent; color:var(--text)">
+    </label>
+    <div style="height:10px"></div>
+
+    <label>Email<br/>
+      <input required type="email" name="email" placeholder="vous@example.com" style="width:100%; padding:12px; border-radius:12px; border:1px solid color-mix(in oklab, var(--text) 18%, transparent); background:transparent; color:var(--text)">
+    </label>
+    <div style="height:10px"></div>
+
+    <label>Message<br/>
+      <textarea required name="message" rows="5" placeholder="Votre message..." style="width:100%; padding:12px; border-radius:12px; border:1px solid color-mix(in oklab, var(--text) 18%, transparent); background:transparent; color:var(--text)"></textarea>
+    </label>
+
+    <div style="height:14px"></div>
+    <button class="btn" type="submit">Envoyer</button>
+  </form>
+
+  <div class="row" style="margin-top:12px">
+    <a href="mailto:tambattresor25@gmail.com" class="btn secondary">Email</a>
+    <a href="https://www.linkedin.com/in/tresor-tambat-b93894272" class="btn secondary">LinkedIn</a>
+    <a href="https://github.com/TTM1971" class="btn secondary">GitHub</a>
+  </div>
+</section>
+
+<section id="cv" class="section">
+  <h2 class="title">Mon CV</h2>
+  <div class="card">
+    <object data="CV.pdf" type="application/pdf" width="100%" height="640">
+      
+        <a href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Ouvrir le CV</a> ou
+        <a href="tresor_cv_proff.pdf" download>Télécharger</a>.
+      </p>
+    </object>
+  </div>
+</section>
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+     
+      <p class="muted">© <span id="year"></span> [TAMBAT Tresor Megane]. </p>
+    </div>
+  </footer>
+
+  <script>
+    // Année automatique
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fonction pour afficher/masquer les projets supplémentaires
+    function toggleMoreProjects() {
+      const moreProjects = document.getElementById('moreProjects');
+      const seeMoreBtn = document.getElementById('seeMoreBtn');
+      
+      if (moreProjects.classList.contains('show')) {
+        moreProjects.classList.remove('show');
+        seeMoreBtn.textContent = 'Voir plus de projets';
+        seeMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        moreProjects.classList.add('show');
+        seeMoreBtn.textContent = 'Voir moins';
+        setTimeout(() => {
+          moreProjects.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+
+    // Smooth scroll pour les liens d'ancrage
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
