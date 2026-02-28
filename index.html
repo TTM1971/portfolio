@@ -14,12 +14,6 @@
       --bg:#0b0f14; --card:#101722; --muted:#a7b0be; --text:#e8eef6; --brand:#5cc8ff;
       --ring:rgba(92,200,255,.35);
     }
-<<<<<<< HEAD
-=======
-    :root.light{
-      --bg:#f7fafc; --card:#ffffff; --muted:#4a5568; --text:#0b0f14; --brand:#2563eb; --ring:rgba(37,99,235,.2);
-    }
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
     *{box-sizing:border-box}
     html,body{margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif; background:var(--bg); color:var(--text)}
     a{color:var(--brand); text-decoration:none}
@@ -29,22 +23,16 @@
     .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
     .nav a{margin:0 8px; font-weight:600; color:var(--text); opacity:.9}
     .nav a:hover{opacity:1}
-<<<<<<< HEAD
     .btn{display:inline-flex; align-items:center; gap:10px; background:var(--brand); color:white; border:none; padding:12px 16px; border-radius:14px; font-weight:700; cursor:pointer; box-shadow:0 8px 24px -8px var(--ring); transition:all 0.3s ease}
     .btn:hover{transform:translateY(-2px); box-shadow:0 12px 32px -8px var(--ring)}
     .btn.secondary{background:transparent; color:var(--text); border:1px solid color-mix(in oklab, var(--text) 18%, transparent)}
     .btn.secondary:hover{background:color-mix(in oklab, var(--brand) 10%, transparent); border-color:var(--brand)}
-=======
-    .btn{display:inline-flex; align-items:center; gap:10px; background:var(--brand); color:white; border:none; padding:12px 16px; border-radius:14px; font-weight:700; cursor:pointer; box-shadow:0 8px 24px -8px var(--ring)}
-    .btn.secondary{background:transparent; color:var(--text); border:1px solid color-mix(in oklab, var(--text) 18%, transparent)}
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
     .grid{display:grid; gap:20px}
     .hero{padding:72px 0 36px}
     .hero h1{font-size: clamp(28px, 4vw, 44px); line-height:1.1; margin:0 0 12px}
     .hero p{color:var(--muted); font-size: clamp(16px, 2vw, 18px); margin:0 0 24px}
     .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid color-mix(in oklab, var(--text) 18%, transparent); border-radius:999px; color:var(--muted); font-size:13px}
     .section{padding:32px 0}
-<<<<<<< HEAD
     .card{background:var(--card); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius:18px; padding:20px; transition:all 0.3s ease}
     .card:hover{border-color:color-mix(in oklab, var(--brand) 40%, var(--card)); box-shadow:0 10px 28px -14px var(--ring); transform:translateY(-4px)}
     .title{font-size:22px; margin:0 0 4px}
@@ -59,19 +47,6 @@
     .projects{grid-template-columns:repeat(auto-fill, minmax(260px, 1fr))}
     .proj-cover{aspect-ratio:16/10; border-radius:12px; background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 35%, var(--card)), var(--card)); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); display:flex; align-items:center; justify-content:center; font-weight:800; transition:all 0.3s ease}
     .card:hover .proj-cover{background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 50%, var(--card)), var(--card)); transform:scale(1.02)}
-=======
-    .card{background:var(--card); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); border-radius:18px; padding:20px}
-    .card:hover{border-color:color-mix(in oklab, var(--brand) 40%, var(--card)); box-shadow:0 10px 28px -14px var(--ring)}
-    .title{font-size:22px; margin:0 0 4px}
-    .muted{color:var(--muted)}
-    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .kpi{background:var(--card); border-radius:16px; padding:16px; border:1px solid color-mix(in oklab, var(--text) 12%, transparent)}
-    .kpi strong{display:block; font-size:22px}
-    .skills{display:flex; flex-wrap:wrap; gap:10px}
-    .chip{padding:8px 12px; border-radius:999px; border:1px solid color-mix(in oklab, var(--text) 18%, transparent); color:var(--muted); font-weight:600; font-size:14px}
-    .projects{grid-template-columns:repeat(auto-fill, minmax(260px, 1fr))}
-    .proj-cover{aspect-ratio:16/10; border-radius:12px; background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 35%, var(--card)), var(--card)); border:1px solid color-mix(in oklab, var(--text) 12%, transparent); display:flex; align-items:center; justify-content:center; font-weight:800}
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
     .row{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
     footer{padding:28px 0 56px; color:var(--muted)}
     .footer-links{display:flex; gap:14px; flex-wrap:wrap}
@@ -79,7 +54,6 @@
     @media (max-width:720px){ .kpis{grid-template-columns:1fr 1fr} }
     .brand { font-weight:800; letter-spacing:.3px; }
     .logo { height:70px; width:auto; display:block }
-<<<<<<< HEAD
     .ai-badge{background:linear-gradient(135deg, var(--brand), #8b5cf6); color:white; padding:4px 10px; border-radius:6px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px}
     .ai-section{margin-bottom:32px}
     .ai-section h2{display:flex; align-items:center; gap:12px; margin-bottom:8px}
@@ -88,8 +62,6 @@
     @keyframes fadeIn{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)}}
     .see-more-btn{width:100%; margin-top:24px; justify-content:center; background:linear-gradient(135deg, var(--brand), #8b5cf6)}
     .see-more-btn:hover{background:linear-gradient(135deg, #8b5cf6, var(--brand))}
-=======
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
 
   </style>
 </head>
@@ -101,19 +73,11 @@
         <span class="brand-name">TAMBAT Tresor Megane</span>
     </a>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
       <nav class="row" aria-label="Navigation principale">
         <a href="#projets">Projets</a>
         <a href="#competences">Compétences</a>
         <a href="#experience">Expérience</a>
         <a href="#contact">Contact</a>
-<<<<<<< HEAD
-=======
-        <button class="btn secondary" id="themeBtn" aria-label="Changer le thème">Thème</button>
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
       </nav>
     </div>
   </header>
@@ -122,29 +86,19 @@
     <!-- HERO -->
     <section class="hero">
       <span class="badge">Disponible pour stage / emploi à temps partiel</span>
-<<<<<<< HEAD
       <h1>Je construis des solutions  <span style="color:var(--brand)">IT & Web & Science de données & IA</span> .</h1>
       <p>Étudiant en informatique basé à Ottawa/Gatineau. Spécialisé en science de données et intelligence artificielle </p>
-=======
-      <h1>Je construit des solutions  <span style="color:var(--brand)">IT & Web & Science de donnee & IA</span> .</h1>
-      <p>Étudiant en informatique basé à Ottawa/Gatineau. Spécialisé en science de donnee et intelligence artificielle </p>
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
       <div class="row">
         <a class="btn" href="#projets">Voir mes projets</a>
        
         <a class="btn secondary" href="tresor_cv_proff.pdf" target="_blank" rel="noopener" type="application/pdf">Voir mon CV</a>
       </div>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
     </section>
 
     <!-- KPIs / Faits saillants -->
     <section class="section">
      <div class="kpis">
-<<<<<<< HEAD
         <div class="kpi">
           <span class="muted">Projets complétés</span>
           <strong>10+</strong>
@@ -157,26 +111,11 @@
           <span class="muted">Technologies maîtrisées</span>
           <strong>15+</strong>
         </div>
-=======
-         <!-- <div class="kpi">
-          <span class="muted">Années d'expérience (projets/labs)</span>
-          <strong>2+</strong>
-        </div>  -->
-        <div class="kpi">
-          <span class="muted">Projets complétés</span>
-          <strong>12</strong>
-        </div>
-        <!--<div class="kpi">
-          <span class="muted">Certifications en cours</span>
-          <strong>Machine learning engeniers </strong>
-        </div>-->
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
       </div>
     </section>
 
     <!-- PROJETS -->
     <section id="projets" class="section">
-<<<<<<< HEAD
       <div class="ai-section">
         <h2 class="title">
           <span>Projets Intelligence Artificielle</span>
@@ -344,75 +283,6 @@
             <a href="https://github.com/TTM1971/Systeme-de-guidage-de-route-dans-un-reseau.git" class="btn secondary">Code</a>
           </div>
         </article>
-=======
-      <h2 class="title">Projets sélectionnés</h2>
-      <p class="muted">Un aperçu de mes travaux récents. Chaque carte inclut la stack, un résumé et des liens.</p>
-      <div class="grid projects" style="margin-top:14px">
-        <!-- Projet 1 -->
-        <article class="card">
-          <div class="proj-cover">Machine Learning</div>
-          <h3 style="margin:12px 0 6px">Comparaison des algorithme de machine learning</h3>
-          <p class="muted">KNN, Regression Logistique, Arbre de decision.</p>
-          <div class="skills" style="margin:10px 0 12px">
-            <span class="chip">GitHub</span>
-            <span class="chip">Python</span>
-            <span class="chip">Git</span>
-            <span class="chip">VScode</span>
-          </div>
-          <div class="row">
-            <a href="https://github.com/TTM1971/Comparaison-de-3-algorithmes-de-ML.git" class="btn secondary">Code</a>
-            
-          </div>
-        </article> 
-        <!-- Projet 2 -->
-        <article class="card">
-          <div class="proj-cover">Machine Learning</div>
-          <h3 style="margin:12px 0 6px">Analyse predictive et exploration des donnees de transport urbain</h3>
-          <p class="muted"> recherche du meilleur algorithme pour classer les stations  et predire l'affluence dans les annees a venir.</p>
-          <div class="skills" style="margin:10px 0 12px">
-            <span class="chip">Kmeans</span>
-            <span class="chip">Dbscan</span>
-            <span class="chip">KNN</span>
-            <span class="chip">DecisionTree</span>
-            <span class="chip">RandomForest</span>
-          </div>
-          <div class="row">
-            <a href="#" class="btn secondary">Code</a>
-           
-          </div>
-        </article>
-        <!-- Projet 3 -->
-        <article class="card">
-          <div class="proj-cover">JavaFX GPS</div>
-          <h3 style="margin:12px 0 6px">Simulation GPS avec recalcul</h3>
-          <p class="muted">JavaFX, Dijkstra, simulation d'accidents et congestion, flèches directionnelles, UI réactive.</p>
-          <div class="skills" style="margin:10px 0 12px">
-            <span class="chip">Java</span>
-            <span class="chip">JavaFX</span>
-            <span class="chip">Algorithmes</span>
-          </div>
-          <div class="row">
-            <a href="https://github.com/TTM1971/Systeme-de-guidage-de-route-dans-un-reseau.git" class="btn secondary">Code</a>
-            
-          </div>
-        </article>
-      
-       <!-- Projet 4 -->
-        <article class="card">
-          <div class="proj-cover">Base de donnees </div>
-          <h3 style="margin:12px 0 6px">Bases de donnees relationnelle </h3>
-          <p class="muted">conception d'une base de donnee relationnellepour la gestions des transactions commerciales.</p>
-          <div class="skills" style="margin:10px 0 12px">
-            <span class="chip">UML</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">GitHub</span>
-          </div>
-          <div class="row">
-            <a href="https://github.com/TTM1971/projet1_base_de_donnee.git" class="btn secondary">code</a>
-          </div>
-        </article>
-      
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
       </div> 
     </section>
 
@@ -508,8 +378,10 @@
 <section id="cv" class="section">
   <h2 class="title">Mon CV</h2>
   <div class="card">
-    <object data="CV.pdf" type="application/pdf" width="100%" height="640">
-      
+    <!-- Intégration directe du CV en PDF -->
+    <object data="tresor_cv_proff.pdf" type="application/pdf" width="100%" height="640">
+      <p>
+        Votre navigateur ne peut pas afficher le PDF.
         <a href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Ouvrir le CV</a> ou
         <a href="tresor_cv_proff.pdf" download>Télécharger</a>.
       </p>
@@ -528,7 +400,6 @@
   </footer>
 
   <script>
-<<<<<<< HEAD
     // Année automatique
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -561,24 +432,6 @@
       });
     });
 
-=======
-
-
-    // Année automatique
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Thème clair/sombre avec persistance
-    const root = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if(saved === 'light'){ root.classList.add('light'); }
-    document.getElementById('themeBtn').addEventListener('click', ()=>{
-      root.classList.toggle('light');
-      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-    });
-
-     
-
->>>>>>> 3cabdca980780574681bc68e8d5aaeb7db67c0ef
   </script>
 </body>
 </html>
