@@ -506,19 +506,37 @@
     <section id="cv" class="section">
       <div class="section-title">
         <div>
-          <h2 class="title">CV</h2>
-          <p class="muted" style="margin:6px 0 0">Consultation directe du PDF.</p>
+          <h2 class="title">Mon CV</h2>
+          <p class="muted" style="margin:6px 0 0">Téléchargez ou consultez mon CV en format PDF.</p>
         </div>
-        <a class="btn" href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Ouvrir le PDF</a>
       </div>
 
-      <div class="card" style="padding:0; overflow:hidden">
+      <div class="card" style="text-align:center; padding:32px">
+        <div style="margin-bottom:24px">
+          <h3 style="margin:0 0 16px">Curriculum Vitae</h3>
+          <p class="muted" style="margin:0 0 24px">Cliquez sur les boutons ci-dessous pour télécharger ou consulter mon CV.</p>
+        </div>
+        <div class="row" style="justify-content:center; gap:12px; flex-wrap:wrap">
+          <a class="btn" href="tresor_cv_proff.pdf" target="_blank" rel="noopener">
+            📄 Ouvrir le CV
+          </a>
+          <a class="btn secondary" href="tresor_cv_proff.pdf" download>
+            ⬇️ Télécharger le CV
+          </a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0; overflow:hidden; margin-top:20px">
         <object data="tresor_cv_proff.pdf" type="application/pdf" width="100%" height="720">
-          <p style="padding:16px">
-            Votre navigateur ne peut pas afficher le PDF.
-            <a href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Ouvrir le CV</a> ou
-            <a href="tresor_cv_proff.pdf" download>Télécharger</a>.
-          </p>
+          <div style="padding:32px; text-align:center">
+            <p class="muted" style="margin:0 0 16px">
+              Votre navigateur ne peut pas afficher le PDF directement.
+            </p>
+            <div class="row" style="justify-content:center; gap:12px">
+              <a class="btn" href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Ouvrir le CV</a>
+              <a class="btn secondary" href="tresor_cv_proff.pdf" download>Télécharger le CV</a>
+            </div>
+          </div>
         </object>
       </div>
     </section>
