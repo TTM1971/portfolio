@@ -12,29 +12,29 @@
   <style>
     :root{
       --bg:#ffffff;
-      --surface:#f6f7f9;
       --card:#ffffff;
+      --surface:#ffffff;
 
-      --text:#0b1220;      /* noir */
-      --muted:#4b5563;     /* gris */
-      --border:#e5e7eb;    /* bordures */
+      --text:#000000;      /* NOIR */
+      --muted:#111111;     /* quasi noir (pour descriptions) */
+      --border:#e5e7eb;
       --shadow: 0 10px 24px rgba(0,0,0,.06);
-
-      --accent:#111827;    /* noir profond */
-      --accent2:#0b1220;
       --radius:16px;
+
+      --accent:#000000;    /* noir */
+      --accentHover:#111111;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif;
-      background: var(--bg); /* fond 100% blanc */
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a{color:inherit; text-decoration:none}
+    a{color:var(--text); text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:1100px; margin:0 auto; padding:28px}
 
@@ -47,18 +47,19 @@
     .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
     .brand{
       display:flex; align-items:center; gap:12px;
-      font-weight:800; letter-spacing:.2px; color:var(--text);
+      font-weight:800; letter-spacing:.2px;
+      color:var(--text);
     }
     .logo{height:44px; width:auto; display:block}
     nav a{
       margin:0 10px;
       font-weight:650;
       color:var(--text);
-      opacity:.82;
+      opacity:.9;
     }
     nav a:hover{opacity:1}
 
-    /* Buttons (noir sur blanc) */
+    /* Buttons (noir & blanc) */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:11px 14px;
@@ -75,20 +76,19 @@
     }
     .btn:hover{
       transform: translateY(-1px);
-      border-color:#d1d5db;
+      border-color:#cbd5e1;
       box-shadow: 0 10px 20px rgba(0,0,0,.06);
       text-decoration:none;
     }
 
-    /* Bouton principal (noir) */
     .btn.primary{
       background: var(--accent);
       color:#fff;
       border-color: var(--accent);
     }
     .btn.primary:hover{
-      background: #000;
-      border-color:#000;
+      background: var(--accentHover);
+      border-color: var(--accentHover);
       box-shadow: 0 12px 22px rgba(0,0,0,.12);
     }
 
@@ -100,7 +100,7 @@
       display:flex; align-items:flex-end; justify-content:space-between;
       gap:16px; flex-wrap:wrap; margin-bottom:14px;
     }
-    .title{font-size:22px; margin:0}
+    .title{font-size:22px; margin:0; color:var(--text)}
     .muted{color:var(--muted)}
 
     /* Hero */
@@ -110,8 +110,8 @@
       padding:6px 10px;
       border:1px solid var(--border);
       border-radius:999px;
-      background: var(--surface);
-      color: var(--muted);
+      background:#fff;
+      color:var(--text);
       font-size:13px;
       font-weight:650;
     }
@@ -120,14 +120,20 @@
       line-height:1.12;
       margin:14px 0 10px;
       letter-spacing:-.4px;
+      color:var(--text);
     }
     .hero p{
       margin:0 0 18px;
-      color:var(--muted);
+      color:var(--text);
       font-size: clamp(16px, 2vw, 18px);
       max-width: 72ch;
     }
-    .highlight{font-weight:800; text-decoration: underline; text-underline-offset: 6px}
+    .highlight{
+      font-weight:900;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      color:var(--text);
+    }
 
     /* Cards */
     .card{
@@ -140,18 +146,19 @@
     }
     .card:hover{
       transform: translateY(-2px);
-      border-color:#d1d5db;
+      border-color:#cbd5e1;
       box-shadow: var(--shadow);
     }
 
     /* KPIs */
     .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
     .kpi{
-      background: var(--surface);
+      background:#fff;
       border:1px solid var(--border);
       border-radius: var(--radius);
       padding:16px;
     }
+    .kpi span, .kpi strong{color:var(--text)}
     .kpi strong{display:block; font-size:22px; margin-top:4px}
 
     /* Skills */
@@ -160,7 +167,7 @@
       padding:8px 12px;
       border-radius:999px;
       border:1px solid var(--border);
-      color: var(--muted);
+      color: var(--text);
       font-weight:650;
       font-size:14px;
       background: #fff;
@@ -175,25 +182,11 @@
       border:1px solid var(--border);
       display:flex; align-items:center; justify-content:center;
       font-weight:850;
-      color: rgba(11,18,32,.88);
+      color: var(--text);
       letter-spacing:.3px;
     }
-    .proj-cover span{opacity:.85}
 
-    .tag{
-      display:inline-flex; align-items:center;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid var(--border);
-      color: var(--muted);
-      font-size:12px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-    }
-
-    /* See more */
+    /* Toggle zone (projects) */
     .more-projects{display:none; animation:fadeIn .25s ease}
     .more-projects.show{display:grid}
     @keyframes fadeIn{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)}}
@@ -213,13 +206,13 @@
       font: inherit;
     }
     input:focus, textarea:focus{
-      border-color:#111827;
-      box-shadow: 0 0 0 4px rgba(17,24,39,.10);
+      border-color:#000;
+      box-shadow: 0 0 0 4px rgba(0,0,0,.10);
     }
     .sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
 
     /* Footer */
-    footer{padding:24px 0 50px; color:var(--muted)}
+    footer{padding:24px 0 50px; color:var(--text)}
     .footer-line{border-top:1px solid var(--border); padding-top:16px}
 
     @media (max-width: 820px){
@@ -233,7 +226,7 @@
   <header>
     <div class="container nav">
       <a href="#" class="brand" aria-label="Retour en haut de page">
-        <img id="logo" class="logo" src="logo.PNG" alt="Logo TAMBAT Trésor Mégane">
+        <img class="logo" src="logo.PNG" alt="Logo TAMBAT Trésor Mégane">
         <span>TAMBAT Trésor Mégane</span>
       </a>
 
@@ -245,7 +238,6 @@
         <a href="#cv">CV</a>
       </nav>
 
-      <a class="btn" href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
     </div>
   </header>
 
@@ -261,7 +253,7 @@
       <div class="row">
         <a class="btn primary" href="#projets">Voir mes projets</a>
         <a class="btn" href="#contact">Me contacter</a>
-        <a class="btn" href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Voir le CV</a>
+        
       </div>
     </section>
 
@@ -269,15 +261,15 @@
     <section class="section">
       <div class="kpis">
         <div class="kpi">
-          <span class="muted">Projets complétés</span>
+          <span>Projets complétés</span>
           <strong>10+</strong>
         </div>
         <div class="kpi">
-          <span class="muted">Projets IA/ML</span>
+          <span>Projets IA/ML</span>
           <strong>4+</strong>
         </div>
         <div class="kpi">
-          <span class="muted">Technologies</span>
+          <span>Technologies</span>
           <strong>15+</strong>
         </div>
       </div>
@@ -288,14 +280,15 @@
       <div class="section-title">
         <div>
           <h2 class="title">Projets</h2>
-          <p class="muted" style="margin:6px 0 0">Sélection de projets (IA/ML, data, développement).</p>
+          <p class="muted" style="margin:6px 0 0">6 projets affichés. Clique sur “Voir plus” pour dérouler la liste complète.</p>
         </div>
-        <span class="tag">Focus IA</span>
       </div>
 
+      <!-- 6 projets visibles -->
       <div class="grid projects">
+        <!-- 1 -->
         <article class="card">
-          <div class="proj-cover"><span>Machine Learning</span></div>
+          <div class="proj-cover">Machine Learning</div>
           <h3 style="margin:12px 0 6px">Comparaison d'algorithmes ML</h3>
           <p class="muted">KNN, Régression logistique et Arbre de décision pour prédire le défaut de paiement bancaire.</p>
           <div class="skills" style="margin:10px 0 12px">
@@ -306,10 +299,11 @@
           </div>
         </article>
 
+        <!-- 2 -->
         <article class="card">
-          <div class="proj-cover"><span>Cybersécurité</span></div>
+          <div class="proj-cover">Cybersécurité</div>
           <h3 style="margin:12px 0 6px">Détection d'attaques DDoS</h3>
-          <p class="muted">Détection DDoS via Random Forest et Deep Q-Network (à documenter : dataset, métriques, résultats).</p>
+          <p class="muted">Détection DDoS via Random Forest et Deep Q-Network (ajouter métriques/dataset dans le README).</p>
           <div class="skills" style="margin:10px 0 12px">
             <span class="chip">PyTorch</span><span class="chip">Dask</span><span class="chip">RL</span><span class="chip">SMOTE</span>
           </div>
@@ -318,20 +312,22 @@
           </div>
         </article>
 
+        <!-- 3 -->
         <article class="card">
-          <div class="proj-cover"><span>Data Science</span></div>
+          <div class="proj-cover">Data Science</div>
           <h3 style="margin:12px 0 6px">Prédiction du diabète</h3>
           <p class="muted">Modèle prédictif et analyse des facteurs (âge, IMC, hypertension).</p>
           <div class="skills" style="margin:10px 0 12px">
-            <span class="chip">Scikit-learn</span><span class="chip">Feature Selection</span><span class="chip">Pandas</span>
+            <span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span class="chip">Feature Selection</span>
           </div>
           <div class="row">
             <a href="https://github.com/TTM1971/UQO_data_science_project_2024_aut" class="btn" target="_blank" rel="noopener">Code</a>
           </div>
         </article>
 
+        <!-- 4 -->
         <article class="card">
-          <div class="proj-cover"><span>Mobilité</span></div>
+          <div class="proj-cover">Mobilité</div>
           <h3 style="margin:12px 0 6px">Flux de transport urbain</h3>
           <p class="muted">Clustering, classification et prédiction d’affluence sur données de mobilité.</p>
           <div class="skills" style="margin:10px 0 12px">
@@ -341,51 +337,75 @@
             <a href="https://github.com/TTM1971/Mod-lisation-des-flux-de-transport-urbain-en-graphe-orient-cas-des-taxis-new-yorkais" class="btn" target="_blank" rel="noopener">Code</a>
           </div>
         </article>
-      </div>
 
-      <button class="btn primary see-more-btn" id="seeMoreBtn" onclick="toggleMoreProjects()">Voir plus de projets</button>
-
-      <div class="grid projects more-projects" id="moreProjects" style="margin-top:18px">
+        <!-- 5 -->
         <article class="card">
-          <div class="proj-cover"><span>Statistiques</span></div>
+          <div class="proj-cover">Statistiques</div>
           <h3 style="margin:12px 0 6px">Analyse — bornes électriques</h3>
           <p class="muted">Analyse comparative et modélisation prédictive de la demande (ARIMA / Markov).</p>
-          <div class="row"><a href="https://github.com/TTM1971/Analyse-Statistique-Int-gr-e-du-R-seau-de-Bornes-lectriques" class="btn" target="_blank" rel="noopener">Code</a></div>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">ARIMA</span><span class="chip">Markov</span><span class="chip">Pandas</span>
+          </div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/Analyse-Statistique-Int-gr-e-du-R-seau-de-Bornes-lectriques" class="btn" target="_blank" rel="noopener">Code</a>
+          </div>
         </article>
 
+        <!-- 6 -->
         <article class="card">
-          <div class="proj-cover"><span>Régression</span></div>
+          <div class="proj-cover">JavaFX / GPS</div>
+          <h3 style="margin:12px 0 6px">Simulation GPS</h3>
+          <p class="muted">JavaFX + Dijkstra, simulation accidents/congestion, interface réactive.</p>
+          <div class="skills" style="margin:10px 0 12px">
+            <span class="chip">Java</span><span class="chip">JavaFX</span><span class="chip">Dijkstra</span>
+          </div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/Systeme-de-guidage-de-route-dans-un-reseau" class="btn" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- bouton dérouler -->
+      <button class="btn primary see-more-btn" id="seeMoreBtn" onclick="toggleMoreProjects()">
+        Voir plus
+      </button>
+
+      <!-- projets supplémentaires (cachés) -->
+      <div class="grid projects more-projects" id="moreProjects" style="margin-top:18px">
+        <article class="card">
+          <div class="proj-cover">Régression</div>
           <h3 style="margin:12px 0 6px">Prix des voitures</h3>
           <p class="muted">Régression + contrôle multicolinéarité (VIF) et validation d’hypothèses.</p>
-          <div class="row"><a href="https://github.com/TTM1971/Mod-lisation-statistique-pour-la-pr-diction-du-prix-des-voitures" class="btn" target="_blank" rel="noopener">Code</a></div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/Mod-lisation-statistique-pour-la-pr-diction-du-prix-des-voitures" class="btn" target="_blank" rel="noopener">Code</a>
+          </div>
         </article>
 
         <article class="card">
-          <div class="proj-cover"><span>Automates</span></div>
+          <div class="proj-cover">Automates</div>
           <h3 style="margin:12px 0 6px">Automate non-déterministe</h3>
           <p class="muted">Automates finis : déterminisation et minimisation (Myhill–Nerode).</p>
-          <div class="row"><a href="https://github.com/TTM1971/Progammation-d-un-automate-non-deterministe" class="btn" target="_blank" rel="noopener">Code</a></div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/Progammation-d-un-automate-non-deterministe" class="btn" target="_blank" rel="noopener">Code</a>
+          </div>
         </article>
 
         <article class="card">
-          <div class="proj-cover"><span>Base de données</span></div>
+          <div class="proj-cover">Base de données</div>
           <h3 style="margin:12px 0 6px">BD relationnelle</h3>
           <p class="muted">Conception + implémentation d’une base pour la gestion de transactions.</p>
-          <div class="row"><a href="https://github.com/TTM1971/projet1_base_de_donnee" class="btn" target="_blank" rel="noopener">Code</a></div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/projet1_base_de_donnee" class="btn" target="_blank" rel="noopener">Code</a>
+          </div>
         </article>
 
         <article class="card">
-          <div class="proj-cover"><span>Statistiques</span></div>
+          <div class="proj-cover">Statistiques</div>
           <h3 style="margin:12px 0 6px">Facteurs d’apprentissage</h3>
           <p class="muted">Régression linéaire & ANOVA pour identifier les facteurs influents.</p>
-          <div class="row"><a href="https://github.com/TTM1971/projet2-_sciences_de_donnees_uqo_2024" class="btn" target="_blank" rel="noopener">Code</a></div>
-        </article>
-
-        <article class="card">
-          <div class="proj-cover"><span>JavaFX / GPS</span></div>
-          <h3 style="margin:12px 0 6px">Simulation GPS</h3>
-          <p class="muted">JavaFX + Dijkstra, simulation accidents/congestion, UI réactive.</p>
-          <div class="row"><a href="https://github.com/TTM1971/Systeme-de-guidage-de-route-dans-un-reseau" class="btn" target="_blank" rel="noopener">Code</a></div>
+          <div class="row">
+            <a href="https://github.com/TTM1971/projet2-_sciences_de_donnees_uqo_2024" class="btn" target="_blank" rel="noopener">Code</a>
+          </div>
         </article>
       </div>
     </section>
@@ -400,37 +420,80 @@
       </div>
 
       <div class="card">
-        <h3 style="margin:0 0 8px">IA / Data</h3>
+        <h3 style="margin:0 0 8px">Langages de programmation</h3>
         <div class="skills" style="margin:10px 0 18px">
-          <span class="chip">Spark</span>
+          <span class="chip">Python</span>
+          <span class="chip">Java</span>
+          <span class="chip">SQL</span>
+          <span class="chip">HTML / CSS / JS</span>
+          <span class="chip">C</span>
+        </div>
+
+        <h3 style="margin:0 0 8px">Machine Learning & IA</h3>
+        <div class="skills" style="margin:10px 0 18px">
+          <span class="chip">Scikit-learn</span>
           <span class="chip">PyTorch</span>
           <span class="chip">TensorFlow</span>
-          <span class="chip">Azure</span>
-          <span class="chip">AWS</span>
+          <span class="chip">Gym</span>
+          <span class="chip">Reinforcement Learning</span>
+        </div>
+
+        <h3 style="margin:0 0 8px">Data Science & Analyse</h3>
+        <div class="skills" style="margin:10px 0 18px">
+          <span class="chip">Pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">Dask</span>
+          <span class="chip">Statsmodels</span>
+          <span class="chip">ARIMA</span>
+          <span class="chip">Markov</span>
+        </div>
+
+        <h3 style="margin:0 0 8px">Algorithmes ML</h3>
+        <div class="skills" style="margin:10px 0 18px">
+          <span class="chip">KNN</span>
+          <span class="chip">Random Forest</span>
+          <span class="chip">Decision Tree</span>
+          <span class="chip">KMeans</span>
+          <span class="chip">DBSCAN</span>
+          <span class="chip">Régression Logistique</span>
+        </div>
+
+        <h3 style="margin:0 0 8px">Visualisation & Préprocessing</h3>
+        <div class="skills" style="margin:10px 0 18px">
+          <span class="chip">Matplotlib</span>
+          <span class="chip">Seaborn</span>
+          <span class="chip">Folium</span>
+          <span class="chip">SMOTE</span>
+          <span class="chip">PCA</span>
+        </div>
+
+        <h3 style="margin:0 0 8px">Bases de données</h3>
+        <div class="skills" style="margin:10px 0 18px">
+          <span class="chip">MySQL</span>
+          <span class="chip">SQL</span>
+          <span class="chip">UML</span>
         </div>
 
         <h3 style="margin:0 0 8px">Développement</h3>
         <div class="skills" style="margin:10px 0 18px">
-          <span class="chip">HTML / CSS / JS</span>
+          <span class="chip">JavaFX</span>
           <span class="chip">React</span>
-          <span class="chip">Python</span>
-          <span class="chip">Java</span>
-          <span class="chip">SQL</span>
-          <span class="chip">C</span>
+          <span class="chip">Dijkstra</span>
         </div>
 
-        <h3 style="margin:0 0 8px">Outils & Méthodes</h3>
+        <h3 style="margin:0 0 8px">Outils & Environnements</h3>
         <div class="skills" style="margin:10px 0 18px">
+          <span class="chip">Jupyter Notebook</span>
           <span class="chip">Git / GitHub</span>
-          <span class="chip">Agile / Scrum</span>
           <span class="chip">Power BI</span>
+          <span class="chip">Spark</span>
         </div>
 
-        <h3 style="margin:0 0 8px">Environnement</h3>
-        <div class="skills">
-          <span class="chip">Windows</span>
-          <span class="chip">macOS</span>
-          <span class="chip">Linux</span>
+        <h3 style="margin:0 0 8px">Cloud & Méthodes</h3>
+        <div class="skills" style="margin:10px 0 18px">
+          <span class="chip">Azure</span>
+          <span class="chip">AWS</span>
+          <span class="chip">Agile / Scrum</span>
         </div>
       </div>
     </section>
@@ -449,7 +512,7 @@
           <h3 style="margin:0 0 10px">Université du Québec en Outaouais (UQO)</h3>
           <ul style="margin:0; padding-left:18px">
             <li><strong>Baccalauréat en informatique</strong> — en cours</li>
-            <li class="muted">Ottawa/Gatineau</li>
+            <li>Ottawa/Gatineau</li>
           </ul>
         </div>
 
@@ -506,45 +569,24 @@
     <section id="cv" class="section">
       <div class="section-title">
         <div>
-          <h2 class="title">Mon CV</h2>
-          <p class="muted" style="margin:6px 0 0">Téléchargez ou consultez mon CV en format PDF.</p>
+          <h2 class="title">CV</h2>
+          <p class="muted" style="margin:6px 0 0">Clique sur le lien pour télécharger mon CV.</p>
         </div>
       </div>
 
-      <div class="card" style="text-align:center; padding:32px">
-        <div style="margin-bottom:24px">
-          <h3 style="margin:0 0 16px">Curriculum Vitae</h3>
-          <p class="muted" style="margin:0 0 24px">Cliquez sur les boutons ci-dessous pour télécharger ou consulter mon CV.</p>
-        </div>
-        <div class="row" style="justify-content:center; gap:12px; flex-wrap:wrap">
-          <a class="btn" href="tresor_cv_proff.pdf" target="_blank" rel="noopener">
-            📄 Ouvrir le CV
+      <div class="card">
+        <p style="margin:0">
+          <a href="tresor_cv_proff.pdf" download style="font-weight:800; text-decoration:underline; text-underline-offset:6px;">
+            Télécharger mon CV (PDF)
           </a>
-          <a class="btn secondary" href="tresor_cv_proff.pdf" download>
-            ⬇️ Télécharger le CV
-          </a>
-        </div>
-      </div>
-
-      <div class="card" style="padding:0; overflow:hidden; margin-top:20px">
-        <object data="tresor_cv_proff.pdf" type="application/pdf" width="100%" height="720">
-          <div style="padding:32px; text-align:center">
-            <p class="muted" style="margin:0 0 16px">
-              Votre navigateur ne peut pas afficher le PDF directement.
-            </p>
-            <div class="row" style="justify-content:center; gap:12px">
-              <a class="btn" href="tresor_cv_proff.pdf" target="_blank" rel="noopener">Ouvrir le CV</a>
-              <a class="btn secondary" href="tresor_cv_proff.pdf" download>Télécharger le CV</a>
-            </div>
-          </div>
-        </object>
+        </p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-line">
-      <p class="muted" style="margin:0">© <span id="year"></span> TAMBAT Trésor Mégane.</p>
+      <p style="margin:0">© <span id="year"></span> TAMBAT Trésor Mégane.</p>
     </div>
   </footer>
 
@@ -553,18 +595,20 @@
 
     function toggleMoreProjects() {
       const moreProjects = document.getElementById('moreProjects');
-      const seeMoreBtn = document.getElementById('seeMoreBtn');
+      const btn = document.getElementById('seeMoreBtn');
 
-      if (moreProjects.classList.contains('show')) {
+      const isOpen = moreProjects.classList.contains('show');
+
+      if (isOpen) {
         moreProjects.classList.remove('show');
-        seeMoreBtn.textContent = 'Voir plus de projets';
-        seeMoreBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        btn.textContent = 'Voir plus';
+        btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         moreProjects.classList.add('show');
-        seeMoreBtn.textContent = 'Voir moins';
+        btn.textContent = 'Voir moins';
         setTimeout(() => {
           moreProjects.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+        }, 80);
       }
     }
 
